@@ -1,0 +1,35 @@
+@media only screen and (min-width:768px) {
+  .sp {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .pc {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width:1366px) {
+  .tab {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width:1365px) {
+  .pc2 {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .sp3 {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width:1023px) {
+  .pc3 {
+    display: none !important;
+  }
+}

@@ -1,0 +1,188 @@
+//width
+
+@mixin width($pc) {
+  width: 100%;
+  max-width: calc(#{$pc} + 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media only screen and (max-width:767px) {
+    padding: 0 20px;
+  }
+}
+
+//display:flex;
+
+@mixin flex($justify: space-between, $align: stretch) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flextop($pc, $num1, $tab, $num3, $sp, $num2) {
+
+  @media only screen and (min-width:1024px) {
+    margin-top: $pc;
+
+    @for $i from 1 through $num1 {
+      &:nth-of-type(#{$i}) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width:1023px) and (min-width:768px) {
+    margin-top: $tab;
+
+    @for $i from 1 through $num3 {
+      &:nth-of-type(#{$i}) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width:767px) {
+    margin-top: $sp;
+
+    @for $i from 1 through $num2 {
+      &:nth-of-type(#{$i}) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+//flex-basis
+
+@mixin basis($pc, $tab, $sp) {
+  flex-basis: $pc;
+  max-width: $pc;
+
+  @media only screen and (max-width: 1023px) {
+    flex-basis: $tab;
+    max-width: $tab;
+  }
+
+  @media only screen and (max-width: 767px) {
+    flex-basis: $sp;
+    max-width: $sp;
+  }
+}
+
+@mixin basis2($pc, $tab, $sp) {
+  flex-basis: $pc;
+  max-width: $pc;
+
+  @media only screen and (max-width: 1365px) {
+    flex-basis: $tab;
+    max-width: $tab;
+  }
+
+  @media only screen and (max-width: 767px) {
+    flex-basis: $sp;
+    max-width: $sp;
+  }
+}
+
+@mixin basis_s($pc) {
+  flex-basis: $pc;
+  max-width: $pc;
+}
+
+//font-size
+@mixin fs($pc:1.6rem, $tab:1.6rem, $sp:1.4rem) {
+  font-size: $pc;
+
+  @media only screen and (max-width:1023px) {
+    font-size: $tab;
+  }
+
+  @media only screen and (max-width:767px) {
+    font-size: $sp;
+  }
+}
+
+@mixin lh($pc:16px, $sp:14px) {
+  line-height: $pc;
+
+  @media only screen and (max-width:767px) {
+    line-height: $sp;
+  }
+}
+
+//slick
+
+@mixin slicks {
+  font-size: 10px;
+}
+
+//margin
+
+@mixin margintop($pc, $tab, $sp) {
+  margin-top: $pc;
+
+  @media only screen and (max-width:1023px) {
+    margin-top: $tab;
+  }
+
+  @media only screen and (max-width:767px) {
+    margin-top: $sp;
+  }
+}
+
+@mixin marginbottom($pc, $tab, $sp) {
+  margin-bottom: $pc;
+
+  @media only screen and (max-width:1023px) {
+    margin-bottom: $tab;
+  }
+
+  @media only screen and (max-width:767px) {
+    margin-bottom: $sp;
+  }
+}
+
+//padding
+
+@mixin paddingtop($pc, $tab, $sp) {
+  padding-top: $pc;
+
+  @media only screen and (max-width:1023px) {
+    padding-top: $tab;
+  }
+
+  @media only screen and (max-width:767px) {
+    padding-top: $sp;
+  }
+}
+
+@mixin paddingbottom($pc, $tab, $sp) {
+  padding-bottom: $pc;
+
+  @media only screen and (max-width:1023px) {
+    padding-bottom: $tab;
+  }
+
+  @media only screen and (max-width:767px) {
+    padding-bottom: $sp;
+  }
+}
+
+@mixin scbar($color:rgba(0, 0, 50, .5)) {
+  @media only screen and (min-width:768px) {
+
+    /*スクロールバー全体*/
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /*スクロールバーの動く部分*/
+    &::-webkit-scrollbar-thumb {
+      background-color: $color;
+      border-radius: 10px;
+      opacity: .3;
+    }
+  }
+}

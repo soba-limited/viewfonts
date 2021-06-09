@@ -1,0 +1,33 @@
+@mixin din() {
+  font-family: dnp-shuei-mincho-pr6,
+    sans-serif;
+}
+
+@mixin vol() {
+  font-family: voluta-script-pro,
+    sans-serif;
+}
+
+@mixin margintop1($pc:100px, $tab:100px, $sp:60px) {
+  margin-top: $pc;
+
+  @media only screen and (max-width:1023px) {
+    margin-top: $tab;
+  }
+
+  @media only screen and (max-width:767px) {
+    margin-top: $sp;
+  }
+}
+
+@mixin marginbottom1($pc:100px, $tab:100px, $sp:60px) {
+  margin-bottom: $pc;
+
+  @media only screen and (max-width:1023px) {
+    margin-bottom: $tab;
+  }
+
+  @media only screen and (max-width:767px) {
+    margin-bottom: $sp;
+  }
+}

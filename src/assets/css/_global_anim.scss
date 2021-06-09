@@ -1,0 +1,125 @@
+.o-menu_link {
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 0;
+  position: relative;
+  padding: 18px 0;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -.05em;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1.6rem;
+
+  span:first-child {
+    animation-name: translate-down-in-axis-Y-origin-top--100-0;
+    animation-duration: .3s;
+    animation-delay: 0s;
+    animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    display: block;
+    font-size: 1.6rem;
+    @include roboto();
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  span:nth-child(2) {
+    margin-top: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: inherit;
+    opacity: 1;
+    animation-name: menu-out;
+    animation-duration: .3s;
+    animation-delay: 0s;
+    animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  &:hover {
+    span:first-child {
+      animation-name: translate-up-out-axis-Y-origin-bottom-0--100;
+      animation-duration: .3s;
+      animation-delay: 0s;
+      animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: both;
+    }
+
+    span:nth-child(2) {
+      opacity: 1;
+      animation-name: menu-in;
+      animation-duration: .3s;
+      animation-delay: 0s;
+      animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: both;
+    }
+  }
+}
+
+.o-menu_link_inner {
+  padding: 0 24px;
+  position: relative;
+  overflow: hidden;
+  height: 1em;
+}
+
+@keyframes translate-down-in-axis-Y-origin-top--100-0 {
+  0% {
+    transform: translateY(-100%);
+    transform-origin: top;
+  }
+
+  100% {
+    transform: translateY(0);
+    transform-origin: top;
+  }
+}
+
+@keyframes menu-out {
+  0% {
+    transform: translate(-50%);
+  }
+
+  100% {
+    transform: translate(-50%, 100%);
+  }
+}
+
+@keyframes translate-up-out-axis-Y-origin-bottom-0--100 {
+  0% {
+    transform: translateY(0);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: translateY(-100%);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes menu-in {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+
+  100% {
+    transform: translate(-50%);
+  }
+}
