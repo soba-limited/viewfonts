@@ -21,10 +21,10 @@ sass.compiler = require('sass');
 var FtpDeploy = require('ftp-deploy');
 var ftpDeploy = new FtpDeploy();
 
-/*const paths = {
-  src: '/xampp/htdocs/vanilla/wp-content/themes/yma/css',
-  dest: '/html/vanilla/wp-content/themes/yma/css',
-};*/
+const paths = {
+  src: '/xampp/htdocs/viewfonts/dist/build',
+  dest: '/html/viewfonts-build',
+};
 
 gulp.task('minify-img', function (done) {
   gulp
@@ -101,7 +101,7 @@ gulp.task('ftp', done => {
     port: 21,
     localRoot: paths.src,
     remoteRoot: paths.dest,
-    include: ['*.min.css', '**/*.min.css'],
+    include: ['*'],
     deleteRemote: false,
     forcePasv: true,
   };
@@ -114,7 +114,8 @@ gulp.task('ftp', done => {
 
 gulp.task('default', function (done) {
   // scss watch & ftp deploy
-  gulp.watch('./src/assets/css/**/*.scss', gulp.series('scss', 'mincss' /*, 'ftp'*/ ));
+  gulp.watch('./src/assets/css/**/*.scss', gulp.series('scss', 'mincss'));
+  gulp.watch('./dist/**/*.*', gulp.series('ftp'));
   gulp.watch(['./src/complex-img/**/*.*'], gulp.series('minify-img', 'svgmin')); //src部分は適宜環境に合わせて修正
   done();
 });

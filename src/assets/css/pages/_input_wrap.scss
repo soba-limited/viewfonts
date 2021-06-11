@@ -1,0 +1,67 @@
+section.single {
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 1.3rem;
+    }
+
+    .input_wrap {
+        width: 100%;
+        @include flex();
+    }
+
+    .text-input {
+        flex-basis: 640px;
+
+        input,
+        textarea {
+            width: 100%;
+        }
+    }
+
+    .color-input {
+        input {
+            display: block;
+            height: 45px;
+        }
+    }
+
+    .family-input {
+        width: 300px;
+        margin-top: 20px;
+
+        select {
+            width: 100%;
+            padding: 6px 20px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            outline: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .weight-input {
+        margin-top: 20px;
+        margin-left: 30px;
+        margin-right: auto;
+        width: 300px;
+
+        select {
+            width: 100%;
+            padding: 6px 20px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            outline: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

@@ -3,4 +3,5 @@ module.exports = {
     port: 8088,
     disableHostCheck: true,
   },
+  //publicPath: '/viewfonts-build/',
 };

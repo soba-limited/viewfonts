@@ -1,33 +1,27 @@
 <template>
-  <div id="nav">
+  <!--<div id="nav">
     <router-link to="/">Home</router-link>
-  </div>
-  <router-view />
+  </div>-->
+  <header>
+    <div class="h_flex">
+      <h1>VeiwFonts</h1>
+      <section class="toggle_button">
+        <button class="toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
+      </section>
+    </div>
+  </header>
+
+  <router-view></router-view>
+
+  <footer>
+    <p class="copy">test</p>
+  </footer>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
 @import "./assets/css/style/ress.min.css";
 @import "./assets/css/style/common.min.css";
-
 </style>

@@ -1,0 +1,28 @@
+[
+  {
+    "id":"0",
+    "title": "見出し",
+    "class":"h1",
+    "input": "テキストを入力してください",
+    "type": "text",
+    "fontsize": 32,
+    "color": "",
+    "family": "",
+    "familys": "",
+    "weight": "",
+    "weights": ""
+  },
+  {
+    "id":"1",
+    "title": "本文",
+    "class":"text",
+    "input": "テキストを入力してください",
+    "type": "textarea",
+    "fontsize": 16,
+    "color": "",
+    "family": "",
+    "familys": "",
+    "weight": "",
+    "weights": ""
+  }
+]

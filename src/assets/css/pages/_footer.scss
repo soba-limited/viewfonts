@@ -1,60 +1,10 @@
-aside {
-    position: fixed;
-    padding: 30px 50px;
-    right: 30px;
-    bottom: 50px;
-    z-index: 200;
-    background: white;
-    border: 1px solid #aaa;
+footer {
+    margin-top: 80px;
+    text-align: center;
+    padding: 30px 15px;
+    background: $red1;
 
-    @media only screen and (max-width:767px) {
-        right: 15px;
-        bottom: 15px;
-        padding: 15px;
-    }
-
-    h2 {
-        text-align: center;
-        margin-bottom: 14px;
-    }
-
-    li {
-        margin-bottom: 10px;
-
-        label {
-            border: 1px solid #aaa;
-            display: block;
-            padding: 4px 8px;
-            border-radius: 30px;
-            text-align: center;
-
-            &.red {
-                color: #AB4646;
-                border-color: #AB4646;
-            }
-
-            &.red2 {
-                color: #B2898B;
-                border-color: #B2898B;
-            }
-
-            &.act {
-                background: #333333;
-                color: white !important;
-
-                &.red {
-                    background: #AB4646;
-                }
-
-                &.red2 {
-                    background: #B2898B;
-                }
-            }
-        }
-
-        input {
-            position: absolute;
-            opacity: 0;
-        }
+    p {
+        color: white;
     }
 }
