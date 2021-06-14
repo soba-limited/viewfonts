@@ -56,25 +56,3 @@ p.yumin {
         "Yu Mincho",
         sefif;
 }
-
-.add_toggle {
-    position: sticky;
-    left: calc(100vw - 110px);
-    bottom: 30px;
-    font-size: 2rem;
-    font-weight: 100;
-    border: 1px solid #333;
-    width: 60px;
-    height: 60px;
-}
-
-section.add_wrap {
-    position: fixed;
-    width: 60vw;
-    height: 30vw;
-    background: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scaleY(0);
-    z-index: 10;
-}

@@ -1,10 +1,45 @@
 <template>
-  <section class="add_wrap">
-    <p class="test">test</p>
+  <section class="add_wrap" id="add_wrap">
+    <article class="inner_wrap">
+      <p class="add_title title">タイトル</p>
+      <p class="input">
+        <input
+          type="text"
+          placeholder="タイトルを入れてください"
+          v-model="addlist[0].title"
+        />
+      </p>
+      <p class="add_title size">フォントサイズ</p>
+      <p class="input">
+        <input type="number" placeholder="16" v-model="addlist[0].fontsize" />
+        px
+      </p>
+      <p class="add_title type">表示タイプ(text or textarea)</p>
+      <p class="input">
+        <select name="" id="" v-model="addlist[0].type">
+          <option value="" selected>表示タイプを選択</option>
+          <option value="text">text</option>
+          <option value="textarea">textarea</option>
+        </select>
+      </p>
+      <p class="add_title sort">表示箇所(選択ヶ所の下)</p>
+      <p class="input">
+        <select name="" id="" v-model="addlist[0].id">
+          <option value="">表示箇所を選択</option>
+          <option
+            :value="sorts.id"
+            v-for="(sorts, index) in inputlist"
+            :key="index"
+          >
+            {{ sorts.title }}
+          </option>
+        </select>
+      </p>
+      <button class="addarray" @click="addarray()">追加する</button>
+    </article>
   </section>
   <section
     class="single pc_wrap"
-    :class="il.class"
     v-for="(il, index) in inputlist"
     v-bind:key="il.id"
   >
@@ -82,7 +117,7 @@
           @change="arraychange"
           v-model="checklist"
           type="checkbox"
-          :value="index"
+          :value="check.id"
           :id="'c' + index"
         />
         <label :for="'c' + index">{{ check.title }}</label>
@@ -103,13 +138,25 @@
       </p>
     </article>
   </section>
-  <button class="add_toggle">+</button>
+  <button
+    class="add_toggle"
+    id="add_toggle"
+    @click="
+      addwrap = !addwrap;
+      addclass();
+    "
+  >
+    +
+  </button>
 </template>
 
 <script>
 import inputlists from "../assets/js/data";
+import addlists from "../assets/js/add";
 import familysArray from "../assets/js/fontfamily";
 import weightsArray from "../assets/js/weight";
+//import draggable from "vuedraggable";
+
 export default {
   name: "ViewFonts",
   data() {
@@ -117,25 +164,75 @@ export default {
       inputlist: inputlists,
       checklist: [],
       viewlist: [],
+      addlist: [],
       addwrap: false,
     };
   },
-  mounted: function () {
-    this.inputlist.forEach((object, index) => {
-      this.inputlist[index].familys = familysArray;
-      this.inputlist[index].weights = weightsArray;
+  created: function () {
+    this.inputlist.forEach((element) => {
+      element.familys = familysArray;
+      element.weights = weightsArray;
     });
+    this.addlist.push(addlists);
   },
   methods: {
+    fw: function () {
+      this.inputlist.forEach((element) => {
+        element.familys = familysArray;
+        element.weights = weightsArray;
+      });
+    },
     arraychange: function () {
-      this.viewlist = [];
+      this.viewlist.splice(0, this.viewlist.length);
       this.checklist.forEach((element) => {
-        this.viewlist.push(this.inputlist[element]);
+        this.viewlist.splice(
+          this.inputlist[element].id,
+          0,
+          this.inputlist[element]
+        );
       });
     },
     remove: function (index) {
-      console.log(this.inputlist[index]);
+      this.checklist.splice(0, this.checklist.length);
+      this.viewlist.splice(0, this.viewlist.length);
       this.inputlist.splice(index, 1);
+    },
+    addclass: function () {
+      const togglebutton = document.getElementById("add_toggle");
+      const addwrap = document.getElementById("add_wrap");
+      togglebutton.classList.toggle("active");
+      addwrap.classList.toggle("active");
+    },
+    addarray: function () {
+      var al = {
+        id: "",
+        title: "",
+        input: "テキストを入力してください",
+        type: "",
+        fontsize: "",
+        color: "",
+        family: "",
+        familys: "",
+        weight: "",
+        weights: "",
+      };
+      const insertNum = this.addlist[0].id + 1;
+      al.id = insertNum;
+      al.title = this.addlist[0].title;
+      al.fontsize = this.addlist[0].fontsize;
+      al.type = this.addlist[0].type;
+      this.inputlist.splice(insertNum, 0, al);
+      var idnum = 0;
+      this.inputlist.forEach((element) => {
+        element.id = idnum;
+        idnum++;
+      });
+      this.addclass();
+      this.fw();
+      this.addlist[0].id = "";
+      this.addlist[0].fontsize = "";
+      this.addlist[0].title = "";
+      this.addlist[0].type = "";
     },
   },
 };
