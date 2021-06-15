@@ -17,7 +17,7 @@
   <router-view></router-view>
 
   <footer>
-    <p class="copy">test</p>
+    <p class="copy">&copy; ai-web-font-view.</p>
   </footer>
 </template>
 

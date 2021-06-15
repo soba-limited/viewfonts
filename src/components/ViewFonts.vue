@@ -40,6 +40,7 @@
   </section>
   <section
     class="single pc_wrap"
+    :class="'num' + il.id"
     v-for="(il, index) in inputlist"
     v-bind:key="il.id"
   >
@@ -182,6 +183,17 @@ export default {
         element.weights = weightsArray;
       });
     },
+    idc: function () {
+      var idnum = 0;
+      this.inputlist.forEach((element) => {
+        element.id = idnum;
+        idnum++;
+      });
+    },
+    clear_v: function () {
+      this.checklist.splice(0, this.checklist.length);
+      this.viewlist.splice(0, this.viewlist.length);
+    },
     arraychange: function () {
       this.viewlist.splice(0, this.viewlist.length);
       this.checklist.forEach((element) => {
@@ -193,9 +205,9 @@ export default {
       });
     },
     remove: function (index) {
-      this.checklist.splice(0, this.checklist.length);
-      this.viewlist.splice(0, this.viewlist.length);
+      this.clear_v();
       this.inputlist.splice(index, 1);
+      this.idc();
     },
     addclass: function () {
       const togglebutton = document.getElementById("add_toggle");
@@ -205,7 +217,7 @@ export default {
     },
     addarray: function () {
       var al = {
-        id: "",
+        id: 0,
         title: "",
         input: "テキストを入力してください",
         type: "",
@@ -222,14 +234,11 @@ export default {
       al.fontsize = this.addlist[0].fontsize;
       al.type = this.addlist[0].type;
       this.inputlist.splice(insertNum, 0, al);
-      var idnum = 0;
-      this.inputlist.forEach((element) => {
-        element.id = idnum;
-        idnum++;
-      });
+      this.idc();
       this.addclass();
       this.fw();
-      this.addlist[0].id = "";
+      this.clear_v();
+      this.addlist[0].id = 0;
       this.addlist[0].fontsize = "";
       this.addlist[0].title = "";
       this.addlist[0].type = "";

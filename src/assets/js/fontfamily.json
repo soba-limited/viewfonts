@@ -4,11 +4,51 @@
     "class": "noto"
   },
   {
+    "name":"Noto Serif",
+    "class":"notos"
+  },
+  {
+    "name":"mplus",
+    "class":"mplus"
+  },
+  {
     "name": "游ゴシック",
     "class": "yugo"
   },
   {
     "name": "游明朝",
     "class": "yumin"
+  },
+  {
+    "name":"A-OTF UD Shin Maru Go Pr6N",
+    "class":"shinmarugo"
+  },
+  {
+    "name":"A-OTF UD Shin Go Pr6N",
+    "class":"shingo"
+  },
+  {
+    "name":"A-OTF UD Reimin Pr6N",
+    "class":"reimin"
+  },
+  {
+    "name":"A-OTF Ryumin Pr6N",
+    "class":"ryumin"
+  },
+  {
+    "name":"A-OTF Midashi Go MB31 Pr6N",
+    "class":"midashigo"
+  },
+  {
+    "name":"A-OTF Futo Min A101 Pr6N",
+    "class":"futomin"
+  },
+  {
+    "name":"A-OTF Gothic BBB Pr6N",
+    "class":"gothicbbb"
+  },
+  {
+    "name":"A-OTF Futo Go B101 Pr6N",
+    "class":"futogo"
   }
 ]
